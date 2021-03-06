@@ -1,10 +1,11 @@
 import { RouteComponentProps } from "@reach/router";
 import React, { useState } from "react";
+import { Filelist } from "../Filelist";
 import { DropArea } from "./DropArea";
 
 type TUploadProps = RouteComponentProps;
 
-export type TFileState = {info: File, content?: string, allowed: boolean}
+export type TFileState = {info: File, content?: string, allowed: boolean, json?: object}
 
 export const Upload: React.FunctionComponent<TUploadProps> = (props) => {
 
@@ -21,6 +22,7 @@ export const Upload: React.FunctionComponent<TUploadProps> = (props) => {
   return (
     <>
       <DropArea addFiles={addFiles}/>
+      <Filelist list={files} />
     </>
   );
 };
