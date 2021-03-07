@@ -6,16 +6,31 @@ type TButtonProps = {
   text?: string;
   icon?: TIconNames;
   iconProps?: TIconProps;
+  disabled?: boolean;
+  className?: string[];
+  onClick?: (...props: any) => void;
 };
 
 export const Button: React.FunctionComponent<TButtonProps> = ({
   text = "",
   icon,
+  disabled = false,
   iconProps,
+  className = ["btn-primary"],
+  onClick,
 }) => {
   return (
-    <button className="btn btn-blue">
-      <Icon icon={icon} {...iconProps} /> {text}
-    </button>
+    <>
+      <button
+        className={`btn ${className.join(" ")}`}
+        disabled={disabled}
+        onClick={() => {
+          if (typeof onClick === "function") {
+            onClick();
+          }
+        }}>
+        <Icon icon={icon} {...iconProps} /> {text}
+      </button>
+    </>
   );
 };

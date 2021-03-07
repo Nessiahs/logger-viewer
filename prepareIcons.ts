@@ -20,7 +20,10 @@ async function readDir() {
   const list = await readdir(dir);
 
   for (let i = 0; i < list.length; i++) {
-    const file = list[i];
+    const file = list[Number(i)];
+    if (!file) {
+      break;
+    }
     if (file.endsWith(".svg")) {
       let content = await (await readfile(path.join(dir, file))).toString();
       content = content.replace(dataPrefix, "");

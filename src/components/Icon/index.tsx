@@ -12,7 +12,7 @@ export const Icon: React.FunctionComponent<TIconProps> = ({
   className = [],
   size = 4,
 }) => {
-  if (!icon) {
+  if (!icon || Object.keys(Icons).includes(icon) === false) {
     return null;
   }
 
