@@ -34,15 +34,16 @@ export const DropArea: React.FunctionComponent<TDropAreaProps> = ({
     const transFiles = e.dataTransfer.files;
 
     for (let i = 0; i < transFiles.length; i++) {
-      const allowed = allowedFiles.includes(transFiles[i].type);
+      const files = transFiles[i];
+      const allowed = allowedFiles.includes(files.type);
       const info = {
-        info: transFiles[i],
+        info: files,
         allowed,
         json: {},
       };
 
       if (allowed === true) {
-        info.json = await readFile(transFiles[i]);
+        info.json = await readFile(files);
       }
 
       filesToAdd.push(info);

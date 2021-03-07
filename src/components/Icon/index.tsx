@@ -1,3 +1,4 @@
+import React from "react";
 import { Icons, TIconNames } from "./IconNames";
 
 export type TIconProps = {

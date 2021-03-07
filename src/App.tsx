@@ -1,6 +1,5 @@
 import { Link, RouteComponentProps, Router } from "@reach/router";
 import React from "react";
-import "./App.css";
 import { Icon } from "./components/Icon";
 import { Sidebar } from "./components/Sidebar";
 import { Upload } from "./components/Upload";
@@ -28,7 +27,7 @@ function App() {
       <div className=" h-full">
         <main className="h-full container mx-auto flex flex-row border border-gray-300">
           <Sidebar />
-          <div className="container border border-gray-300">
+          <div className="container border border-gray-300 p-5">
             <Router>
               <Home path="/" />
               <Upload path="/import/" />
