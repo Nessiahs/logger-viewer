@@ -16,12 +16,13 @@ export const Icon: React.FunctionComponent<TIconProps> = ({
     return null;
   }
 
+  const cIcon = Icons[icon];
   return (
     <div
       className={`h-${size} w-${size} fill ${className.join(
         ","
       )} ml-auto mr-auto mt-0`}
-      dangerouslySetInnerHTML={{ __html: Icons[icon] }}
+      dangerouslySetInnerHTML={{ __html: cIcon }}
     />
   );
 };

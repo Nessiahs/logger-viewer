@@ -5,23 +5,23 @@ import { DropArea } from "./DropArea";
 
 type TUploadProps = RouteComponentProps;
 
-export type TFileState = {info: File, content?: string, allowed: boolean, json?: object}
+export type TFileState = {
+  info: File;
+  content?: string;
+  allowed: boolean;
+  json?: object;
+};
 
 export const Upload: React.FunctionComponent<TUploadProps> = (props) => {
-
   const [files, setFiles] = useState<TFileState[]>([]);
 
   const addFiles = (add: TFileState[]) => {
-
-    setFiles([
-        ...files,
-        ...add
-    ])
-  }
+    setFiles([...files, ...add]);
+  };
 
   return (
     <>
-      <DropArea addFiles={addFiles}/>
+      <DropArea addFiles={addFiles} />
       <Filelist list={files} />
     </>
   );
