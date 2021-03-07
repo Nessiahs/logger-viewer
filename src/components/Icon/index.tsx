@@ -21,6 +21,7 @@ export const Icon: React.FunctionComponent<TIconProps> = ({
       className={`h-${size} w-${size} fill ${className.join(
         ","
       )} ml-auto mr-auto mt-0`}
-      dangerouslySetInnerHTML={{ __html: Icons[icon] }}></div>
+      dangerouslySetInnerHTML={{ __html: Icons[icon] }}
+    />
   );
 };
