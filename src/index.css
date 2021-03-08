@@ -23,13 +23,33 @@
 }
 
 .btn-primary:disabled {
-  @apply bg-gray-400;
-  @apply opacity-50;
+  @apply bg-gray-400 opacity-50;
+}
+
+.btn-minimal {
+  @apply text-gray-300  bg-transparent;
+}
+
+.btn-minimal:hover {
+  @apply text-gray-600;
+}
+
+.portal {
+  @apply bg-gray-400 bg-opacity-40 fixed inset-0;
 }
 
 .modal {
-  @apply bg-gray-400;
-  @apply opacity-40;
-  @apply fixed;
-  @apply inset-0;
+  max-height: calc(100vh - 80px);
+}
+
+input[type="text"] {
+  @apply rounded;
+}
+
+label {
+  @apply block;
+}
+
+pre {
+  @apply text-sm;
 }

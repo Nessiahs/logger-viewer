@@ -9,6 +9,7 @@ export type TFileState = {
   info: File;
   content?: string;
   allowed: boolean;
+  imported: boolean;
   json?: object;
 };
 
@@ -19,10 +20,17 @@ export const Upload: React.FunctionComponent<TUploadProps> = (props) => {
     setFiles([...files, ...add]);
   };
 
+  const removeFile = (filename: string) => {
+    setFiles(files.filter((item) => item.info.name !== filename));
+  };
+
   return (
     <>
       <DropArea addFiles={addFiles} />
-      <Filelist list={files} />
+      <Filelist
+        list={files}
+        removeFile={(filename: string) => removeFile(filename)}
+      />
     </>
   );
 };

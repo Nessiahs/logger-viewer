@@ -1,5 +1,6 @@
 import { Link, RouteComponentProps, Router } from "@reach/router";
 import React from "react";
+import { Analyse } from "./components/Analyse";
 import { Icon } from "./components/Icon";
 import { Sidebar } from "./components/Sidebar";
 import { Upload } from "./components/Upload";
@@ -31,6 +32,7 @@ function App() {
             <Router>
               <Home path="/" />
               <Upload path="/import/" />
+              <Analyse path="/analyse/" />
             </Router>
           </div>
         </main>

@@ -39,6 +39,7 @@ export const DropArea: React.FunctionComponent<TDropAreaProps> = ({
       const info = {
         info: files,
         allowed,
+        imported: false,
         json: {},
       };
 
