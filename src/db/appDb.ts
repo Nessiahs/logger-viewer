@@ -37,13 +37,12 @@ class AppDb extends Dexie {
   }
 
   async addDump(name: string, data: any) {
-    console.log(data);
     if (!this.isBrowser(data.browser)) {
-      throw new Error(``);
+      throw new Error(`Browserdate has wrong properties`);
     }
 
     if (!this.isScreen(data.screen)) {
-      throw new Error(" Screendata has wrong properties");
+      throw new Error("Screendata has wrong properties");
     }
 
     const dbName = uuidv4();

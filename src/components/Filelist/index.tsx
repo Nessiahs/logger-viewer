@@ -21,13 +21,13 @@ export const Filelist: React.FunctionComponent<TFilelistProps> = ({
 
   const doImport = async (filename: string) => {
     const toImport = list.find((item) => item.info.name === filename);
-
-    if (!toImport) {
-      return;
-    }
-
     try {
+      if (!toImport) {
+        throw new Error(`Can't find ${filename} in filelist`);
+      }
+
       const dbName = await appDb.addDump(toImport.info.name, toImport.json);
+
       if (!dbName) {
         throw new Error(`Cant't create basic db data`);
       }
@@ -36,7 +36,7 @@ export const Filelist: React.FunctionComponent<TFilelistProps> = ({
       importDb.import(toImport.json);
       setImported(toImport.info.name);
     } catch (e) {
-      console.log("Error at import", e);
+      console.log("Error at import", e.message);
     }
   };
 

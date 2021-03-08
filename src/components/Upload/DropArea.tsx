@@ -60,9 +60,11 @@ export const DropArea: React.FunctionComponent<TDropAreaProps> = ({
       onDragOver={dragover}
       onDragEnter={dragEnter}
       onDragLeave={dragLeave}
-      onDrop={fileDrop}>
+      onDrop={fileDrop}
+    >
       <div
-        className={`mt-5 container text-center${isDragOver ? " hidden" : ""}`}>
+        className={`mt-5 container text-center${isDragOver ? " hidden" : ""}`}
+      >
         Drop files to import
       </div>
     </div>

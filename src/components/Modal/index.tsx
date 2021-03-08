@@ -11,7 +11,8 @@ export const Modal: React.FunctionComponent<TModalProps> = (props) => {
       <Portal {...props}>
         <div
           className="left-1/4 right-1/4 fixed top-7 opacity-100 bg-white z-20 modal overflow-hidden"
-          max-h-full>
+          max-h-full
+        >
           <header className="flex justify-between h-10 bg-gray-400">
             <div className="font-bold pt-2 pl-3">{props.title}</div>{" "}
             <Button icon="TIMES_SOLID" className={["btn-minimal -mt-2"]} />

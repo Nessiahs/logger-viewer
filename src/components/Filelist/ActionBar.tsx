@@ -1,5 +1,7 @@
+import { Link } from "@reach/router";
 import React from "react";
 import { Button } from "../Button";
+import { Icon } from "../Icon";
 import { TFileState } from "../Upload";
 
 type TActionBarProps = {
@@ -16,7 +18,11 @@ export const ActionBar: React.FunctionComponent<TActionBarProps> = ({
   imported,
 }) => {
   if (imported === true) {
-    return <>Imported</>;
+    return (
+      <Link to="/analyse/" className="btn btn-primary">
+        <Icon icon="EYE_REGULAR" />
+      </Link>
+    );
   }
 
   return (
