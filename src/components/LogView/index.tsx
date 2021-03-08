@@ -19,7 +19,7 @@ export const LogView: React.FunctionComponent<TLogView> = ({
 
   return (
     <>
-      <div>Logview</div>
+      <h1 className="font-bold text-2xl mt-6">Logview</h1>
       {history.map((item, i) => (
         <History {...item} db={db} key={`histoty-${i}`} hideEmpty={hideEmpty} />
       ))}

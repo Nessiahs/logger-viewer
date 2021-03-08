@@ -15,8 +15,9 @@ export const Analyse: React.FunctionComponent<TAnalyseProps> = (props) => {
     <>
       <h1>Analyse</h1>
       <div className="flex">
-        <label className="mr-4">Select a import</label>
+        <label className="mr-4 ">Select a import</label>
         <select
+          className="p-1 pr-5"
           onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
             const dataToShow = logs.find(
               (entry) => entry.dbName === e.target.value
@@ -33,13 +34,15 @@ export const Analyse: React.FunctionComponent<TAnalyseProps> = (props) => {
             </option>
           ))}
         </select>
-
-        <label>Hide Pages with no log:</label>
-        <input
-          type="checkbox"
-          checked={hideEmpty}
-          onChange={() => setHideEmpty(!hideEmpty)}
-        />
+        <div className="pl-5 flex">
+          <label>Hide Pages with no log:</label>
+          <input
+            className="m-1.5"
+            type="checkbox"
+            checked={hideEmpty}
+            onChange={() => setHideEmpty(!hideEmpty)}
+          />
+        </div>
       </div>
       <div>
         <LogInfo data={selected} />

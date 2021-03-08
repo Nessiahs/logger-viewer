@@ -58,7 +58,7 @@ export type TLogLevel = keyof typeof logIncludes;
 
 export type TInsertTypes = "log" | "error" | "warn" | "info";
 
-type TBulk = {
+export type TBulk = {
   tableName: "log" | "info" | "error" | "warning" | "history" | "scriptError";
   rows:
     | IConsoleLog[]

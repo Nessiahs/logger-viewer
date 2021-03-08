@@ -5,8 +5,8 @@ import { useGetErrorByPage } from "../../hooks/useGetErrorByPage";
 import { useGetInfoByPage } from "../../hooks/useGetInfoByPage";
 import { useGetLogByPage } from "../../hooks/useGetLogByPage";
 import { useGetWarningByPage } from "../../hooks/useGetWarningByPage";
-import { Icon } from "../Icon";
 import { LogDetail } from "../LogDetail";
+import { LogIcons } from "../LogIcon";
 import { OpenIndicator } from "../OpenIndicator";
 
 export type THistoryProps = { db: ImportDb; hideEmpty: boolean } & IPagestart;
@@ -58,25 +58,11 @@ export const History: React.FunctionComponent<THistoryProps> = ({
 
         <div className="flex-1">{url}</div>
         <div className="flex text-xs mt-1">
-          <Icon icon="EXCLAMATION_CIRCLE_SOLID" className={["text-blue-500"]} />
-          ({log.length})
-          <Icon
-            icon="EXCLAMATION_TRIANGLE_SOLID"
-            className={["text-yellow-500"]}
-          />
-          ({info.length})
-          <Icon
-            icon="EXCLAMATION_TRIANGLE_SOLID"
-            className={["text-yellow-600"]}
-          />
-          ({warning.length})
-          <Icon
-            icon="EXCLAMATION_TRIANGLE_SOLID"
-            className={["text-red-500"]}
-          />
-          ({error.length})
-          <Icon icon="BUG_SOLID" className={["text-red-700"]} />(
-          {scriptError.length})
+          <LogIcons type="log" />({log.length})
+          <LogIcons type="info" />({info.length})
+          <LogIcons type="warning" />({warning.length})
+          <LogIcons type="error" />({error.length})
+          <LogIcons type="scriptError" />({scriptError.length})
         </div>
       </div>
       <LogDetail

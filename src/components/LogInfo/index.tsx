@@ -13,7 +13,7 @@ export const LogInfo: React.FunctionComponent<TLogInfoProps> = ({ data }) => {
 
   return (
     <div className="mt-2.5">
-      <div>Browser</div>
+      <div className="font-bold text-2xl mt-6">Browser</div>
       <div className="flex flex-row flex-wrap border-b border-gray-400">
         <div className="whitespace-nowrap w-1/2">OS: {data.browser.os}</div>
         <div className="whitespace-nowrap w-1/2">
@@ -37,12 +37,10 @@ export const LogInfo: React.FunctionComponent<TLogInfoProps> = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="border-b border-gray-400 mt-2.5">
-        Screen:
-        <div className="flex">
-          <div className="w-1/2">width: {data.screen.width}px</div>
-          <div className="w-1/2">height: {data.screen.height}px</div>
-        </div>
+      <div className=" font-bold text-2xl mt-6">Screen:</div>
+      <div className="flex border-b border-gray-400 mt-2.5">
+        <div className="w-1/2">width: {data.screen.width}px</div>
+        <div className="w-1/2">height: {data.screen.height}px</div>
       </div>
     </div>
   );

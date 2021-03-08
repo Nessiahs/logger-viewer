@@ -20,7 +20,7 @@ export const Icon: React.FunctionComponent<TIconProps> = ({
   return (
     <div
       className={`h-${size} w-${size} fill ${className.join(
-        ","
+        " "
       )} ml-auto mr-auto mt-0`}
       dangerouslySetInnerHTML={{ __html: cIcon }}
     />

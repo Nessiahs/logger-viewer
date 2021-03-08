@@ -36,13 +36,13 @@ export const LogDetail: React.FunctionComponent<TLogDetailProps> = ({
       className="transition-all overflow-hidden"
       style={{ maxHeight: isOpen === true ? "999px" : 0 }}>
       {log.map((item) => (
-        <LogDetailEntry {...item} />
+        <LogDetailEntry {...item} type="log" />
       ))}
       {info.map((item) => (
-        <LogDetailEntry {...item} />
+        <LogDetailEntry {...item} type="info" />
       ))}
       {warning.map((item) => (
-        <LogDetailEntry {...item} />
+        <LogDetailEntry {...item} type="warning" />
       ))}
     </div>
   );

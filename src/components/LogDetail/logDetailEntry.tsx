@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { IConsoleInfo, IConsoleLog, IConsoleWarning } from "../../db/logDb";
+import { LogIcons, TLogIconsProps } from "../LogIcon";
 import { OpenIndicator } from "../OpenIndicator";
 
-type TLogDeatilEntryProps = IConsoleLog | IConsoleInfo | IConsoleWarning;
+type TLogDeatilEntryProps = { type: TLogIconsProps["type"] } & (
+  | IConsoleLog
+  | IConsoleInfo
+  | IConsoleWarning
+);
 
 export const LogDetailEntry: React.FunctionComponent<TLogDeatilEntryProps> = (
   props
@@ -21,6 +26,9 @@ export const LogDetailEntry: React.FunctionComponent<TLogDeatilEntryProps> = (
         onClick={() => setIsOpen(!isOpen)}>
         <div className="w-4 mt-1.5">
           <OpenIndicator hasEntry={hasExtra} isOpen={isOpen} />
+        </div>
+        <div className="mt-1">
+          <LogIcons type={props.type} />
         </div>
         <div className="flex-1">{JSON.parse(props.message)}</div>
         <div>
