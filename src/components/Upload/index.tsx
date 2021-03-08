@@ -24,12 +24,27 @@ export const Upload: React.FunctionComponent<TUploadProps> = (props) => {
     setFiles(files.filter((item) => item.info.name !== filename));
   };
 
+  const setImported = (filename: string) => {
+    setFiles(
+      files.map((file) => {
+        if (file.info.name === filename) {
+          return {
+            ...file,
+            imported: true,
+          };
+        }
+        return file;
+      })
+    );
+  };
+
   return (
     <>
       <DropArea addFiles={addFiles} />
       <Filelist
         list={files}
         removeFile={(filename: string) => removeFile(filename)}
+        setImported={(fn: string) => setImported(fn)}
       />
     </>
   );

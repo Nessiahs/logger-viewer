@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { appDb } from "../../db/appDb";
 import { ImportDb } from "../../db/logDb";
-import { Button } from "../Button";
 import { Modal } from "../Modal";
 import { TFileState } from "../Upload";
+import { ActionBar } from "./ActionBar";
 
 export type TFilelistProps = {
   list: TFileState[];
   removeFile: (fn: string) => void;
+  setImported: (fn: string) => void;
 };
 
 export const Filelist: React.FunctionComponent<TFilelistProps> = ({
   list,
   removeFile,
+  setImported,
 }) => {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [preview, setPreview] = useState<TFileState>();
@@ -32,6 +34,7 @@ export const Filelist: React.FunctionComponent<TFilelistProps> = ({
 
       const importDb = new ImportDb(dbName);
       importDb.import(toImport.json);
+      setImported(toImport.info.name);
     } catch (e) {
       console.log("Error at import", e);
     }
@@ -46,27 +49,15 @@ export const Filelist: React.FunctionComponent<TFilelistProps> = ({
               key={`filelist-${i}`}
               className="flex justify-between m-0.5 p-0.5 flex-row border-gray-900 border-b border-solid">
               <div>{entry.info.name}</div>
-              <div>
-                <Button
-                  icon="EYE_REGULAR"
-                  onClick={() => {
-                    setPreview(entry);
-                    setPreviewOpen(true);
-                  }}
-                  disabled={!entry.allowed}
-                />
-                <Button
-                  icon="TRASH_ALT_REGULAR"
-                  className={["btn-danger"]}
-                  onClick={() => removeFile(entry.info.name)}
-                />
-                <Button
-                  disabled={!entry.allowed}
-                  icon="CHECK_CIRCLE_REGULAR"
-                  iconProps={{ className: ["text-green-500"] }}
-                  onClick={() => doImport(entry.info.name)}
-                />
-              </div>
+              <ActionBar
+                onPreview={() => {
+                  setPreview(entry);
+                  setPreviewOpen(true);
+                }}
+                onDelete={() => removeFile(entry.info.name)}
+                onImport={() => doImport(entry.info.name)}
+                {...entry}
+              />
             </div>
           );
         })}
