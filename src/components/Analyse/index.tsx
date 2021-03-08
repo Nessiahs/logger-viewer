@@ -17,7 +17,7 @@ export const Analyse: React.FunctionComponent<TAnalyseProps> = (props) => {
       <div className="flex">
         <label className="mr-4 ">Select a import</label>
         <select
-          className="p-1 pr-5"
+          className="pt-1 pb-1"
           onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
             const dataToShow = logs.find(
               (entry) => entry.dbName === e.target.value
