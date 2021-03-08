@@ -171,4 +171,28 @@ export class ImportDb extends Dexie {
 
     return true;
   }
+
+  getHistory() {
+    return this.history.toArray();
+  }
+
+  getLogByPage(page: number) {
+    return this.log.where({ page_id: page }).toArray();
+  }
+
+  getInfoByPage(page: number) {
+    return this.info.where({ page_id: page }).toArray();
+  }
+
+  getWarningByPage(page: number) {
+    return this.warning.where({ page_id: page }).toArray();
+  }
+
+  getErrorByPage(page: number) {
+    return this.error.where({ page_id: page }).toArray();
+  }
+
+  getScriptErrorByPage(page: number) {
+    return this.scriptError.where({ page_id: page }).toArray();
+  }
 }

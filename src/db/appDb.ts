@@ -77,6 +77,10 @@ class AppDb extends Dexie {
       typeof data.os === "string"
     );
   }
+
+  getAll() {
+    return this.importedDB.toArray();
+  }
 }
 
 export const appDb = new AppDb();

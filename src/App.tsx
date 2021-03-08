@@ -25,10 +25,10 @@ function App() {
         </div>
       </header>
 
-      <div className=" h-full">
+      <div className=" h-full overflow-hidden">
         <main className="h-full container mx-auto flex flex-row border border-gray-300">
           <Sidebar />
-          <div className="container border border-gray-300 p-5">
+          <div className="container border border-gray-300 p-5 overflow-y-scroll">
             <Router>
               <Home path="/" />
               <Upload path="/import/" />
@@ -36,10 +36,6 @@ function App() {
             </Router>
           </div>
         </main>
-      </div>
-
-      <div className="h-10 bg-gray-700 text-red-50">
-        <footer className="container mx-auto">footer</footer>
       </div>
     </div>
   );

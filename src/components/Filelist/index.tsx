@@ -29,14 +29,14 @@ export const Filelist: React.FunctionComponent<TFilelistProps> = ({
       const dbName = await appDb.addDump(toImport.info.name, toImport.json);
 
       if (!dbName) {
-        throw new Error(`Cant't create basic db data`);
+        throw new Error("Can't create basic db data");
       }
 
       const importDb = new ImportDb(dbName);
       importDb.import(toImport.json);
       setImported(toImport.info.name);
     } catch (e) {
-      console.log("Error at import", e.message);
+      console.error("Error at import", e.message);
     }
   };
 
