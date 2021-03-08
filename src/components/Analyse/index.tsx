@@ -10,6 +10,7 @@ type TAnalyseProps = RouteComponentProps;
 export const Analyse: React.FunctionComponent<TAnalyseProps> = (props) => {
   const logs = useGetLogs();
   const [selected, setSelected] = useState<IAppDB | null>(null);
+  const [hideEmpty, setHideEmpty] = useState(false);
   return (
     <>
       <h1>Analyse</h1>
@@ -32,10 +33,17 @@ export const Analyse: React.FunctionComponent<TAnalyseProps> = (props) => {
             </option>
           ))}
         </select>
+
+        <label>Hide Pages with no log:</label>
+        <input
+          type="checkbox"
+          checked={hideEmpty}
+          onChange={() => setHideEmpty(!hideEmpty)}
+        />
       </div>
       <div>
         <LogInfo data={selected} />
-        <LogView dbName={selected?.dbName} />
+        <LogView dbName={selected?.dbName} hideEmpty={hideEmpty} />
       </div>
     </>
   );

@@ -11,12 +11,10 @@ export const LogInfo: React.FunctionComponent<TLogInfoProps> = ({ data }) => {
     return null;
   }
 
-  console.log(data);
-
   return (
-    <div>
+    <div className="mt-2.5">
       <div>Browser</div>
-      <div className="flex flex-row flex-wrap">
+      <div className="flex flex-row flex-wrap border-b border-gray-400">
         <div className="whitespace-nowrap w-1/2">OS: {data.browser.os}</div>
         <div className="whitespace-nowrap w-1/2">
           Browser: {data.browser.name}{" "}
@@ -39,11 +37,11 @@ export const LogInfo: React.FunctionComponent<TLogInfoProps> = ({ data }) => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="border-b border-gray-400 mt-2.5">
         Screen:
         <div className="flex">
-          <div className="w-1/2">width: {data.screen.width}</div>
-          <div className="w-1/2">height: {data.screen.height}</div>
+          <div className="w-1/2">width: {data.screen.width}px</div>
+          <div className="w-1/2">height: {data.screen.height}px</div>
         </div>
       </div>
     </div>
