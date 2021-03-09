@@ -28,7 +28,7 @@ export const CustomData: React.FunctionComponent<TCustomData> = ({ data }) => {
     display = [
       {
         label: "Your dump",
-        data: data,
+        data,
       },
     ];
   }
