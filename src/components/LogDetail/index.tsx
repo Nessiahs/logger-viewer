@@ -6,7 +6,9 @@ import {
   IConsoleWarning,
   IScriptError,
 } from "../../db/logDb";
+import { ErrorDetailEntry } from "./errorDetail";
 import { LogDetailEntry } from "./logDetailEntry";
+import { ScriptErrorDetailEntry } from "./scriptErrorDetail";
 
 type TLogDetailProps = {
   isOpen: boolean;
@@ -38,11 +40,21 @@ export const LogDetail: React.FunctionComponent<TLogDetailProps> = ({
       {log.map((item) => (
         <LogDetailEntry {...item} type="log" />
       ))}
+
       {info.map((item) => (
         <LogDetailEntry {...item} type="info" />
       ))}
+
       {warning.map((item) => (
         <LogDetailEntry {...item} type="warning" />
+      ))}
+
+      {error.map((item) => (
+        <ErrorDetailEntry {...item} type="error" />
+      ))}
+
+      {scriptError.map((item) => (
+        <ScriptErrorDetailEntry {...item} type="scriptError" />
       ))}
     </div>
   );

@@ -27,11 +27,19 @@
 }
 
 .btn-minimal {
-  @apply text-gray-300  bg-transparent;
+  @apply text-gray-400  bg-transparent;
 }
 
 .btn-minimal:hover {
   @apply text-gray-600;
+}
+
+.btn-normal {
+  @apply text-gray-500  bg-transparent border-gray-500 border;
+}
+
+.btn-normal:hover {
+  @apply text-gray-600 border-gray-600 border;
 }
 
 .portal {
