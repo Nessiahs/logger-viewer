@@ -12,8 +12,6 @@ export const CustomEntry: React.FunctionComponent<{ data: TDisplay }> = (
 
   const [copyState, setCopyState] = useState("");
 
-  console.log("copy --->", props.data.label, toCopy);
-
   return (
     <div className="flex">
       <div className="font-bold">{props.data.label}</div>

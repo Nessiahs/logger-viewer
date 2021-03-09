@@ -2,17 +2,17 @@ import React from "react";
 import { Icon } from "../Icon";
 import { TIconNames } from "../Icon/IconNames";
 
+type TConfig = {
+  icon: TIconNames;
+  color: string;
+};
+
 type TIconConfig = {
   log: TConfig;
   info: TConfig;
   warning: TConfig;
   error: TConfig;
   scriptError: TConfig;
-};
-
-type TConfig = {
-  icon: TIconNames;
-  color: string;
 };
 
 const iconConfig: TIconConfig = {

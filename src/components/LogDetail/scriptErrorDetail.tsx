@@ -17,7 +17,7 @@ export const ScriptErrorDetailEntry: React.FunctionComponent<TLogDeatilEntryProp
   return (
     <>
       <div
-        className={`flex ml-6 border-b border-gray-400 cursor-pointer`}
+        className="flex ml-6 border-b border-gray-400 cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}>
         <div className="w-4 mt-1.5">
           <OpenIndicator hasEntry={true} isOpen={isOpen} />
