@@ -1,5 +1,6 @@
 import React from "react";
 import { IAppDB } from "../../db/appDb";
+import { CustomData } from "../CustomData";
 import { Icon } from "../Icon";
 
 export type TLogInfoProps = {
@@ -42,6 +43,7 @@ export const LogInfo: React.FunctionComponent<TLogInfoProps> = ({ data }) => {
         <div className="w-1/2">width: {data.screen.width}px</div>
         <div className="w-1/2">height: {data.screen.height}px</div>
       </div>
+      <CustomData data={data.customData} />
     </div>
   );
 };

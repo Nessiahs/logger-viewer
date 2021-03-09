@@ -22,6 +22,7 @@ export interface IAppDB {
   createDate: Date;
   browser: TDbBrowser;
   screen: TDbScreen;
+  customData?: any;
 }
 
 class AppDb extends Dexie {
@@ -30,7 +31,7 @@ class AppDb extends Dexie {
   constructor() {
     super("app-db");
     this.version(1).stores({
-      importedDb: "++id, name, createDate",
+      importedDb: "++id, name, createDate, browser, screen, customData",
     });
 
     this.importedDB = this.table("importedDb");
@@ -52,6 +53,7 @@ class AppDb extends Dexie {
       browser: data.browser,
       screen: data.screen,
       dbName,
+      customData: data?.custom ?? null,
     });
 
     return dbName;
