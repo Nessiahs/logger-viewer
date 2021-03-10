@@ -17,7 +17,9 @@ Your browser will start and you see the application. This application needs no b
 ### Import
 
 ![Empty Import](./screens/import_1.png "Empty import page")
-![Import with file](./screens/import_2.png "Import with file)
+
+![Import with file](./screens/import_2.png "Import with file")
+
 ![Import preview](./screens/import_3.png "Preview of the file to impoer")
 
 ### Log view
